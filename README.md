@@ -26,3 +26,12 @@ docker-redis
 #### Run `redis-cli`
 
     docker run -it --rm --link redis:redis dockerfile/redis bash -c 'redis-cli -h redis'
+
+#### Run `backup-disk`
+
+    docker run -it --rm  \
+    --volumes-from redis \
+    --link redis:redis \
+    -v $(pwd):/backup hlobil/redis \
+    bash -c 'cp dump.rdb /backup/'
+
