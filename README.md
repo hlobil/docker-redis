@@ -33,5 +33,6 @@ docker-redis
     --volumes-from redis \
     --link redis:redis \
     -v $(pwd):/backup hlobil/redis \
-    bash -c 'cp dump.rdb /backup/'
+    bash -c 'cp dump.rdb /backup/dump.$(date "+%b_%d_%Y").rdb'
+
 
