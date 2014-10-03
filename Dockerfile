@@ -32,10 +32,12 @@ RUN	apt-get autoclean -qy; \
 # define mountable directories
 VOLUME ["/data"]
 
+# define working directory.
+WORKDIR /data
+
+# define default command
+CMD ["redis-server","/etc/redis/redis.conf"]
+
 # expose ports
 EXPOSE 6379
 
-ENTRYPOINT ["redis-server"]
-
-# define default command
-CMD ["--dir", "/data"]
