@@ -5,14 +5,17 @@ FROM ubuntu:14.04.1
 ENV DEBIAN_FRONTEND noninteractive
 
 # setup repository path
-RUN 	echo "deb http://archive.ubuntu.com/ubuntu $(lsb_release -cs) main universe" > /etc/apt/sources.list; \
+RUN echo "deb http://archive.ubuntu.com/ubuntu $(lsb_release -cs) main universe" > /etc/apt/sources.list; \
 	echo "deb http://ppa.launchpad.net/chris-lea/redis-server/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/chris-lea-redis-server.list; \
 	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B9316A7BC7917B12
 
+
+ENV REDIS_VERSION 2:2.8.17-1chl1~trusty1
+
 # install redis server
-RUN 	apt-get update -qq; \
+RUN apt-get update -qq; \
 	apt-get upgrade -qy; \
-	apt-get install -qy redis-server; \
+	apt-get install -qy redis-server={$REDIS_VERSION}; \
 	mkdir -p /data && \
 	sed -i 's/^\(bind .*\)$/# \1/' /etc/redis/redis.conf && \
 	sed -i 's/^\(daemonize .*\)$/# \1/' /etc/redis/redis.conf && \
