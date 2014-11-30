@@ -8,18 +8,24 @@ docker-redis
 
 2. Download [automated build](https://registry.hub.docker.com/u/recipediary/redis/) from public [Docker Hub Registry](https://registry.hub.docker.com/): `docker pull recipediary/redis`
 
+### Source
 
-### Usage
+- [Redis Official Repo](https://registry.hub.docker.com/_/redis/)
+
+
+Usage
+=====
 
 #### Build
 ``` bash
-docker build -t recipediary/redis .
+docker build --rm -t recipediary/redis .
 ```
 
 #### Run `redis-server`
 ``` bash
 docker run -d \
   --name redis \
+  --restart=always \
   -p 6379:6379 \
   recipediary/redis
 ```
