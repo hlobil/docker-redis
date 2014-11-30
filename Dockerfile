@@ -26,4 +26,5 @@ RUN bash -xe /install.sh
 CMD ["redis-server","/etc/redis/redis.conf"]
 
 # expose ports
+# - 6379: process
 EXPOSE 6379
