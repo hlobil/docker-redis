@@ -1,5 +1,5 @@
 # trusty (14.04) minimal
-FROM ubuntu:trusty
+FROM ubuntu-debootstrap:trusty
 
 
 # define mountable directories
@@ -10,8 +10,11 @@ WORKDIR /data
 
 
 # Set the env variable
-ENV DEBIAN_FRONTEND noninteractive
-ENV REDIS_VERSION 2:2.8.17-1chl1~trusty1
+ENV DEBIAN_FRONTEND 	noninteractive
+ENV REDIS_VERSION 		2:2.8.19-1chl1~trusty1
+# ENV UBUNTU_VERSION trusty
+# $(lsb_release -cs)
+
 
 COPY install.sh /
 RUN bash -xe /install.sh

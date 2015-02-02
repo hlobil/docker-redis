@@ -1,7 +1,7 @@
 
 # setup repository path
-echo "deb http://archive.ubuntu.com/ubuntu $(lsb_release -cs) main universe" > /etc/apt/sources.list;
-echo "deb http://ppa.launchpad.net/chris-lea/redis-server/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/chris-lea-redis-server.list; \
+echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list;
+echo "deb http://ppa.launchpad.net/chris-lea/redis-server/ubuntu trusty main" > /etc/apt/sources.list.d/chris-lea-redis-server.list;
 apt-key adv --keyserver keyserver.ubuntu.com --recv-keys B9316A7BC7917B12
 
 
